@@ -7,35 +7,27 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-
     "build-mac": "electron-builder --mac dmg",
     "build-win": "electron-builder --win",
     "build-linux": "electron-builder --linux",
-
     "release-mac": "electron-builder --mac --publish always",
     "release-win": "electron-builder --win --publish always",
     "release-linux": "electron-builder --linux --publish always",
-
     "dist": "electron-builder"
   },
- "dependencies": {
+  "dependencies": {
     "marked": "^16.0.0"
   },
-
   "devDependencies": {
     "electron": "^37.0.0",
     "electron-builder": "^26.0.12"
   },
-
   "build": {
     "appId": "com.radhikababar.penny",
-    "productName": "Penny"
-  },
-
+    "productName": "Penny",
     "directories": {
       "output": "dist"
     },
-
     "files": [
       "**/*",
       "!dist/*",
@@ -43,15 +35,13 @@
       "!github/*",
       "!.github/*"
     ],
-
     "publish": [
       {
         "provider": "github",
         "owner": "Radhika-Babar",
-        "repo": "Note_Manager"
+        "repo": "Penny_UI"
       }
     ],
-
     "mac": {
       "target": [
         {
@@ -64,12 +54,10 @@
       ],
       "category": "public.app-category.productivity"
     },
-
     "dmg": {
-      "title": "Minimal Markdown Editor",
+      "title": "Penny",
       "iconSize": 100
     },
-
     "win": {
       "target": [
         {
@@ -80,14 +68,12 @@
         }
       ]
     },
-
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     },
-
     "linux": {
       "target": [
         "AppImage",
@@ -96,3 +82,4 @@
       "category": "Utility"
     }
   }
+}
