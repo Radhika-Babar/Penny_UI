@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Penny - Local AI Financial Assistant",
   "main": "main.js",
-  "author": "Penny Labs",
+ "author": {
+    "name": "Radhika Babar",
+    "email": "radhikababar43@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "start": "electron .",
