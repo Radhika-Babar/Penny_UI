@@ -28,8 +28,9 @@
   },
 
   "build": {
-    "appId": "com.radhikababar.markdowneditor",
-    "productName": "Minimal Markdown Editor",
+    "appId": "com.radhikababar.penny",
+    "productName": "Penny"
+  },
 
     "directories": {
       "output": "dist"
@@ -95,4 +96,3 @@
       "category": "Utility"
     }
   }
-}
