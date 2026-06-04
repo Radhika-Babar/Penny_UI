@@ -1,0 +1,98 @@
+{
+  "name": "penny",
+  "version": "1.0.0",
+  "description": "Penny - Local AI Financial Assistant",
+  "main": "main.js",
+  "author": "Penny Labs",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+
+    "build-mac": "electron-builder --mac dmg",
+    "build-win": "electron-builder --win",
+    "build-linux": "electron-builder --linux",
+
+    "release-mac": "electron-builder --mac --publish always",
+    "release-win": "electron-builder --win --publish always",
+    "release-linux": "electron-builder --linux --publish always",
+
+    "dist": "electron-builder"
+  },
+ "dependencies": {
+    "marked": "^16.0.0"
+  },
+
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^26.0.12"
+  },
+
+  "build": {
+    "appId": "com.radhikababar.markdowneditor",
+    "productName": "Minimal Markdown Editor",
+
+    "directories": {
+      "output": "dist"
+    },
+
+    "files": [
+      "**/*",
+      "!dist/*",
+      "!node_modules/.cache/*",
+      "!github/*",
+      "!.github/*"
+    ],
+
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Radhika-Babar",
+        "repo": "Note_Manager"
+      }
+    ],
+
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "category": "public.app-category.productivity"
+    },
+
+    "dmg": {
+      "title": "Minimal Markdown Editor",
+      "iconSize": 100
+    },
+
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    }
+  }
+}

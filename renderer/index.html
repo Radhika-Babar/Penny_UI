@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+default-src 'self';
+style-src 'self'
+https://fonts.googleapis.com
+'unsafe-inline';
+font-src
+https://fonts.gstatic.com;
+script-src 'self';
+"
+    />
+
+    <title>Penny</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,800;9..144,900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+
+    <!-- Windowed desktop app container -->
+    <div class="desktop">
+
+      <!-- ── HEADER ── -->
+      <header class="header">
+        <div class="brand">
+          <div class="penny-char xs">
+            <div class="body"></div>
+            <div class="eye l"></div>
+            <div class="eye r"></div>
+            <div class="cheek l"></div>
+            <div class="cheek r"></div>
+            <div class="mouth"></div>
+          </div>
+          <div class="brand-name">penny<em>.</em></div>
+        </div>
+
+        <div class="progress-dots">
+          <div class="pd on" id="step1"></div>
+          <div class="pd"    id="step2"></div>
+          <div class="pd-step" id="stepLabel">Step 1 of 2</div>
+        </div>
+
+        <div class="priv-pill">running locally</div>
+
+        <!-- kept for app.js compatibility -->
+        <div id="progressBar" style="display:none;"></div>
+      </header>
+
+      <!-- ── SCREENS ── -->
+      <main>
+
+        <!-- ══ SCREEN 1 · WELCOME ══ -->
+        <section id="welcomeScreen" class="screen active">
+          <div class="s1-wrap">
+            <div class="blob b1"></div>
+            <div class="blob b2"></div>
+            <div class="blob b3"></div>
+
+            <div class="s1-content">
+
+              <!-- Penny character -->
+              <div class="s1-left">
+                <div class="penny-char xl">
+                  <div class="body"></div>
+                  <div class="eye l"></div>
+                  <div class="eye r"></div>
+                  <div class="cheek l"></div>
+                  <div class="cheek r"></div>
+                  <div class="mouth"></div>
+                  <div class="prop hand">👋</div>
+                </div>
+              </div>
+
+              <!-- Copy -->
+              <div class="s1-right">
+                <div class="s1-tag">hi 👋 i'm penny</div>
+
+                <h1 class="s1-h">
+                  Your money,<br>but make it <em>fun.</em>
+                </h1>
+
+                <p class="s1-p">
+                  A tiny AI that lives entirely on your machine. I'll show
+                  where your money goes, banish zombie subs, and roast your
+                  spending habits.
+                </p>
+
+                <div class="s1-bullets">
+                  <div class="s1-bullet">
+                    <div class="s1-bullet-icon">🔒</div>
+                    <div>
+                      <b>On-Device Sovereignty.</b>
+                      Everything runs locally — nothing ever leaves your machine.
+                    </div>
+                  </div>
+                  <div class="s1-bullet">
+                    <div class="s1-bullet-icon">⚡</div>
+                    <div>
+                      <b>Cross-Platform Engine.</b>
+                      Electron optimised for maximum performance.
+                    </div>
+                  </div>
+                  <div class="s1-bullet">
+                    <div class="s1-bullet-icon">🏦</div>
+                    <div>
+                      <b>Secure Ledger.</b>
+                      Encrypted local sync — your data stays yours.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="s1-cta">
+                  <button id="scanBtn" class="btn lime lg">
+                    Scan my hardware →
+                  </button>
+                  <button class="btn ghost">Tell me more</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ══ SCREEN 2 · HARDWARE SCAN ══ -->
+        <section id="scanScreen" class="screen">
+          <div class="s3-wrap">
+            <div class="s3-content">
+
+              <!-- Mac mockup -->
+              <div class="s3-left">
+                <div class="mac-frame">
+                  <div class="mac-screen">
+                    <div class="mac-scan"></div>
+                    <div class="mac-penny-mini">
+                      <div class="penny-char md thinking">
+                        <div class="body"></div>
+                        <div class="eye l"></div>
+                        <div class="eye r"></div>
+                        <div class="cheek l"></div>
+                        <div class="cheek r"></div>
+                        <div class="mouth"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Spec panel -->
+              <div class="s3-right">
+                <h2 class="s3-h">
+                  Nice setup.<br>I'll fit <em>right in.</em>
+                </h2>
+
+                <p class="s3-p" id="auditStatus">
+                  I scanned your hardware — you're all set for the full
+                  experience. Running final checks now.
+                </p>
+
+                <div class="spec-grid">
+                  <div class="spec-card">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-l">CPU / GPU Compute</div>
+                    <div class="spec-v" id="cpuData">Detecting…</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-l">Memory Allocation</div>
+                    <div class="spec-v" id="ramData">Detecting…</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-l">Storage Matrix</div>
+                    <div class="spec-v">SSD Ready</div>
+                    <div class="spec-x">encrypted · fast</div>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-check">✓</div>
+                    <div class="spec-l">OS Architecture</div>
+                    <div class="spec-v" id="osData">Detecting…</div>
+                  </div>
+                </div>
+
+                <div class="s3-footer">
+                  <button id="backBtn" class="btn ghost">← back</button>
+                  <button id="initBtn" class="btn lime">
+                    Initialize Core Brain →
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div><!-- /.desktop -->
+
+    <script src="app.js"></script>
+  </body>
+</html>
